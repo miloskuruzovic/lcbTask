@@ -11,4 +11,11 @@ class ArticleController extends Controller
 		$title = "Lcb Test Home Page";
 		self::view('index', $title);
 	}
+
+	public function all()
+	{
+		$title = "All Articles";
+		$articles = Article::getAll();
+		self::view('all', $title, $articles);
+	}
 }
