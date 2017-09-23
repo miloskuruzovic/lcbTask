@@ -2,7 +2,7 @@
 require_once 'core/init.php';
 session_start();
 
-$controller = "HomeController";
+$controller = "ArticleController";
 $method = "index";
 $params = array();
 
