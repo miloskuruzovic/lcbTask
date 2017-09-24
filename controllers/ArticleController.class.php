@@ -44,6 +44,6 @@ class ArticleController extends Controller
 		$title = "Lcb - " . $category->name;
 		$filter =  "WHERE category = " . $params[0];
 		$articles = Article::getAll($filter);
-		self::view('category', $title, $articles);
+		self::view('categoryPosts', $title, $articles);
 	}
 }
