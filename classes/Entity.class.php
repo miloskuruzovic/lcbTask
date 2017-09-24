@@ -60,8 +60,9 @@ abstract class Entity {
 		foreach ($keys as $column) {
 			$q.= $column . " = ?, ";
 		}
-		$q = trim($q,', ') . "WHERE {$keyColumn} = ?";
-		$stmt = self::$db->prepare($q);
+		$q = trim($q,', ') . " WHERE {$keyColumn} = ?";
+		var_dump($q);
+		$stmt = $db->prepare($q);
 		$n = 1;
 		foreach ($values as $value) {
 			$stmt->bindValue($n, $value);

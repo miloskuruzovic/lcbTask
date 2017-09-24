@@ -28,14 +28,56 @@ class ArticleController extends Controller
 		self::view('article', $title, $article, $comments);
 	}
 
-	public function update($params)
+	public function create()
 	{
-		echo "We are going to update article " .$params[0] ." here!";
+		if (!isset($_SESSION['user_id'])) {
+			header('Location: ' . Config::get('home'));
+		}
+		$categories = Category::getAll();
+		$title = "Add Post";
+		self::view('articleAdd', $title, $categories);
+
+		if (isset($_POST['submit'])) 
+		{
+			$article = new Article;
+			$article->title = $_POST['title'];
+			$article->text = $_POST['text'];
+			$article->category = $_POST['category'];
+			$article->author = $_SESSION['user_id'];
+			$article->insert();
+		}
+	}
+
+	public function update($params = null)
+	{
+		if ($params) 
+		{
+			$id = $params[0];
+			$article = Article::get($params[0]);
+			$categories = Category::getAll();
+			$title = "Lcb - " . $article->title . " - UPDATE";
+
+			self::view('articleUpdate', $title, $article, $categories);
+		}
+		elseif (isset($_POST['submit'])) 
+		{
+			ob_start();
+			$id = $_POST['article_id'];
+			Article::update($id,
+				array('title' => $_POST['title'],
+					'text' => $_POST['text'],
+					'category' => $_POST['category']
+					)
+				);
+			header('Location: ' . $_SERVER['HTTP_REFERER']);
+		}
+		
 	}
 
 	public function delete($params)
 	{
-		echo "We are going to delete article " .$params[0] ." here! :(";
+		Article::remove($params[0]);
+		header('Location: ' . $_SERVER['HTTP_REFERER']);
 	}
 
 	public function categoryPosts($params)

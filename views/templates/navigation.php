@@ -6,6 +6,10 @@
 		<ul class="nav navbar-nav">
 			<li><a href="Article/all">Svi Postovi</a></li>
 			<li><a href="Category/all">Kategorije</a></li>
+			<?php if (isset($_SESSION['user_id'])): ?>
+			<li><a href="Article/create">Dodaj Post</a></li>
+			<li><a href="Category/create">Dodaj Kategoriju</a></li>	
+			<?php endif ?>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li><a><?= (isset($_SESSION['login_msg']))?$_SESSION['login_msg']:"" ?></a></li>

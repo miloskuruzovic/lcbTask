@@ -8,7 +8,7 @@
 <div class="container" style="margin-bottom: 100px;">
 	<h1 class="text-center" style="margin-bottom: 20px">Svi postovi</h1>
 	<?php foreach ($articles as $article): ?>
-		<div class="row">
+		<div class="row" style="border-top: 1px rgba(0,0,0,0.2) solid; padding-top:  5px;">
 			<div class="media">
 				<div class="media-body">
 					<a href="Article/show/<?= $article->article_id ?>">
@@ -17,7 +17,11 @@
 					<p><?= $article->text ?></p>
 				</div>
 				<div class="media-right">
-					update/delete ce biti ovde
+		<?php if (isset($_SESSION['user_id']) 
+				&& $_SESSION['user_id'] == $article->author): ?>
+				<a href="Article/update/<?= $article->article_id ?>">Update</a>
+				<a id="delete-link" href="Article/delete/<?= $article->article_id ?>">Delete</a>
+		<?php endif ?>
 				</div>
 			</div>
 		</div>
