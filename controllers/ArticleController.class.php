@@ -76,7 +76,7 @@ class ArticleController extends Controller
 
 	public function delete($params)
 	{
-		Article::remove($params[0]);
+		($_SESSION['user_id'])?Article::remove($params[0]):"";
 		header('Location: ' . $_SERVER['HTTP_REFERER']);
 	}
 
