@@ -8,12 +8,19 @@
 			<li><a href="Category/all">Kategorije</a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
-			<li><a href="#" data-toggle="modal" data-target="#registerModal">
-			<span class="glyphicon glyphicon-user"></span>
-			Registruj se</a></li>
-      		<li><a href="#" data-toggle="modal" data-target="#loginModal">
-      		<span class="glyphicon glyphicon-log-in"></span>
-      		Uloguj se</a></li>
+			<li><a><?= (isset($_SESSION['login_msg']))?$_SESSION['login_msg']:"" ?></a></li>
+			<?php if (isset($_SESSION['user_id'])): ?>
+				<li><a><?= $_SESSION['username'] ?></a></li>
+				<li><a href="User/logout"><span class="glyphicon glyphicon-log-out"></span> Izloguj se</a></li>
+			<?php else: ?>
+				<li><a href="#" data-toggle="modal" data-target="#loginModal">
+	      		<span class="glyphicon glyphicon-log-in"></span>
+	      		Uloguj se</a></li>
+	      		<li><a href="#" data-toggle="modal" data-target="#registerModal">
+				<span class="glyphicon glyphicon-user"></span>
+				Registruj se</a></li>
+			<?php endif ?>
+      		
 		</ul>
 	</div>
 </nav>
