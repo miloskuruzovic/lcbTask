@@ -22,8 +22,10 @@ class ArticleController extends Controller
 	public function show($params)
 	{
 		$article = Article::get($params[0]);
+		$filter = "WHERE article = " . $params[0];
+		$comments = Comment::getAll($filter);
 		$title = "Lcb - " . $article->title;
-		self::view('article', $title, $article);
+		self::view('article', $title, $article, $comments);
 	}
 
 	public function category($params)
