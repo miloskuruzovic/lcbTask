@@ -14,7 +14,7 @@ class ArticleController extends Controller
 
 	public function all()
 	{
-		$title = "All Articles";
+		$title = "Svi postovi";
 		$articles = Article::getAll();
 		self::view('all', $title, $articles);
 	}

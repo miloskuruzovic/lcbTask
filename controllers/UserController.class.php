@@ -13,7 +13,7 @@ class UserController extends Controller
 
 	public function login()
 	{
-		var_dump($_SESSION);
+		var_dump($_SESSION, $_POST);
 		echo "Login page";
 	}
 
