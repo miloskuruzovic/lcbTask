@@ -28,7 +28,17 @@ class ArticleController extends Controller
 		self::view('article', $title, $article, $comments);
 	}
 
-	public function category($params)
+	public function update($params)
+	{
+		echo "We are going to update article " .$params[0] ." here!";
+	}
+
+	public function delete($params)
+	{
+		echo "We are going to delete article " .$params[0] ." here! :(";
+	}
+
+	public function categoryPosts($params)
 	{
 		$category = Category::get($params[0]);
 		$title = "Lcb - " . $category->name;
