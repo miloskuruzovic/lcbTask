@@ -10,7 +10,7 @@ abstract class Entity {
 		$className = get_called_class();
 		$db = Connect::getInstance();
 		$res = $db->query("SET NAMES utf8");
-		$res = $db->query("SELECT * FROM {$tableName} WHERE status = 1 AND {$keyColumn} = " . $id);
+		$res = $db->query("SELECT * FROM {$tableName} WHERE {$keyColumn} = " . $id);
 		$r = $res->fetchObject($className);
 		return $r;
 	}
