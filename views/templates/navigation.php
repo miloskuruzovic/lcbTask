@@ -44,12 +44,12 @@
 				<div class="form-group">
 					<div class="input-group">
 						<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-						<input id="username" type="text" class="form-control" name="username" placeholder="Username">
+						<input id="username" type="text" class="form-control" name="username" placeholder="Username" required >
 						</div>
 						<br>
 						<div class="input-group">
 						<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-						<input id="password" type="password" class="form-control" name="password" placeholder="Password">
+						<input id="password" type="password" class="form-control" name="password" placeholder="Password" required >
 						</div>
 				</div>
 				<hr>
@@ -72,7 +72,7 @@
 		<div class="modal-content">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal">&times;</button>
-			<h4 class="modal-title">Uloguj se!</h4>
+			<h4 class="modal-title">Registruj se!</h4>
 		</div>
 		<div class="modal-body">
 			<form method="POST" action="User/register">
@@ -80,12 +80,12 @@
 				<div class="form-group">
 					<div class="input-group">
 						<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-						<input id="username" type="text" class="form-control" name="username" placeholder="Username">
+						<input id="username" type="text" class="form-control" name="username" placeholder="Username" required >
 						</div>
 						<br>
 						<div class="input-group">
 						<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-						<input id="password" type="password" class="form-control" name="password" placeholder="Password">
+						<input id="password" type="password" class="form-control" name="password" placeholder="Password" required >
 						</div>
 				</div>
 				<hr>

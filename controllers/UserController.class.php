@@ -7,8 +7,20 @@ class UserController extends Controller
 {
 	public function register()
 	{
-		$_SESSION['test'] = "Testing Session";
-		echo "Register Page - " . $_SESSION['test'];	
+		ob_start();
+		$username = $_POST['username'] ?? null;
+		$password = $_POST['password'] ?? null;
+
+		if ($username && $password) 
+		{
+			$user = new User;
+			$user->username = $username;
+			$user->password = $password;
+			$user->insert();
+			$_SESSION['login_msg'] = "Dobrodošli, možete da se ulogujete! ";
+		}
+
+		header('Location: ' . $_SERVER['HTTP_REFERER']);	
 	}
 
 	public function login()

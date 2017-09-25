@@ -23,7 +23,7 @@
 		</div>
 	<?php endforeach ?>
 </div>
-
+<script type="text/javascript" src="<?= Config::get('home') ?>js/deleteConfirmation.js" ></script>
  <?php 
 	include_once "templates/footer.php";
  ?>
