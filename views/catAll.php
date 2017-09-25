@@ -16,7 +16,7 @@
 				<div class="media-right">
 <?php if (isset($_SESSION['user_id'])): ?>
 				<a href="Category/update/<?= $category->category_id ?>">Update</a>
-				<a id="delete-link" href="Category/delete/<?= $category->category_id ?>">Delete</a>
+				<a class="delete-link" href="Category/delete/<?= $category->category_id ?>">Delete</a>
 <?php endif ?>
 				</div>
 			</div>

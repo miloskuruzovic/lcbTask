@@ -20,7 +20,7 @@
 		<?php if (isset($_SESSION['user_id']) 
 				&& $_SESSION['user_id'] == $article->author): ?>
 				<a href="Article/update/<?= $article->article_id ?>">Update</a>
-				<a id="delete-link" href="Article/delete/<?= $article->article_id ?>">Delete</a>
+				<a class="delete-link" href="Article/delete/<?= $article->article_id ?>">Delete</a>
 		<?php endif ?>
 				</div>
 			</div>
